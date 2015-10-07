@@ -62,6 +62,8 @@ public class CatanPhases : MonoBehaviour {
 		curPhaseIndex = (curPhaseIndex + 1) % ROTATE;
 		phase = (Phases)curPhaseIndex;
 
+		//A system, to change phase to the appropriate phase
+
 		switch (phase)
 		{
 			case (Phases.GAMESTART):
@@ -71,19 +73,28 @@ public class CatanPhases : MonoBehaviour {
 					SetPhase("ROLL");
 					break;
 				}
-
+				else
+					SetPhase("GAMESTART");
 
 				break;
 			case (Phases.ROLL):
+				SetPhase("ROLL");
 				break;
 			case (Phases.TRADE):
+				SetPhase("TRADE");
 				break;
 			case (Phases.BUILD):
+				SetPhase("BUILD");
 				break;
 			case (Phases.PROCESS):
+				turnNumber++;
+				SetPhase("PROCESS");
 				break;
 			case (Phases.ENDGAME):
-				turnNumber++;
+				//if(game is over)
+					//move to appropriate game over screen
+				//else
+					//SetPhase("ROLL");
 				break;
 		}
 
@@ -101,15 +112,21 @@ public class CatanPhases : MonoBehaviour {
 		{
 			case ("GAMESTART"):
 				phase = Phases.GAMESTART;
+				Debug.Log ("Doing game start things...");
 				break;
 			case ("ROLL"):
 				phase = Phases.ROLL;
+				Debug.Log ("Doing roll things...");
 				break;
 			case ("TRADE"):
 				phase = Phases.TRADE;
+				Debug.Log ("Doing Trade things...");
+
 				break;
 			case ("BUILD"):
 				phase = Phases.BUILD;
+				Debug.Log ("Doing build things...");
+
 				break;
 			case ("PROCESS"):
 				phase = Phases.PROCESS;

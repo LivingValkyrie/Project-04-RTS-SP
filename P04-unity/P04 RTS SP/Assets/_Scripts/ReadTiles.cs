@@ -20,19 +20,25 @@ public class ReadTiles : MonoBehaviour {
 				if(tileHit.collider.tag == "Tile"){
 					//hit.collider.gameObject now refers to the 
 					//cube under the mouse cursor if present
-					Debug.Log("Tile clicked on.");
+					TileLocation tileScript = tileHit.collider.GetComponent<TileLocation>();
+
+					Debug.Log("Tile. clicked on number " + tileScript.location);
 				}
 
 				if(tileHit.collider.tag == "Side"){
+					TileLocation tileScript = tileHit.collider.GetComponentInParent<TileLocation>();
 					TileArea areaScript = tileHit.collider.GetComponent<TileArea>();
 
-					Debug.Log("Side. Clicked on " + areaScript.location);
+					Debug.Log("Side. Clicked on " + areaScript.location
+					          + "\nClicked on Tile number " + tileScript.location);
 				}
 
 				if(tileHit.collider.tag == "Corner"){
+					TileLocation tileScript = tileHit.collider.GetComponentInParent<TileLocation>();
 					TileArea areaScript = tileHit.collider.GetComponent<TileArea>();
 
-					Debug.Log ("Corner. Clicked on " + areaScript.location);
+					Debug.Log ("Corner. Clicked on " + areaScript.location
+					           + "\nClicked on Tile number " + tileScript.location);
 				}
 			}
 		}
