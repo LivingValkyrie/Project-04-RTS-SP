@@ -24,5 +24,5 @@ public class MapNode : MonoBehaviour {
 }
 
 public enum MapNodeType {
-    Lumber, Brick, Wool, 
+    Lumber, Brick, Wool, Grain
 }
