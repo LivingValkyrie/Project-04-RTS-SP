@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using System.Security.Cryptography;
+using Random = UnityEngine.Random;
 
 public enum Phases
 {
@@ -65,16 +67,26 @@ public class CatanPhases : MonoBehaviour {
 		switch (phase)
 		{
 			case (Phases.GAMESTART):
-				if(turnNumber > 0)
-				{
-					//skip phase
-					SetPhase("ROLL");
-					break;
-				}
+		        if (turnNumber > 0) {
+		            //skip phase
+		            SetPhase("ROLL");
+		            break;
+		        } else { //gipson
+                    //load map info (Default for now)
+                    GetComponent<Map>().LoadMap();
+		            //give player single build phase
+                    
+		        }
 
 
 				break;
-			case (Phases.ROLL):
+			case (Phases.ROLL): //gipson
+                //erase information from last turn
+		        int roll = Random.Range(1,6);
+                //find all nodes with roll as activation
+                //find settlements on nodes
+                //add resource of type to player
+
 				break;
 			case (Phases.TRADE):
 				break;
