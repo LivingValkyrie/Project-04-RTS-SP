@@ -3,7 +3,19 @@ using System.Collections;
 
 public class TileArea : MonoBehaviour {
 
-	public string location;
+    public enum StructureType
+    {
+        SETTLEMENT,
+        ROAD
+    }
+
+    public string location;
+
+    StructureType structure;
+
+    public GameObject status;
+
+    public GameObject[] activateStatus;
 
 	// Use this for initialization
 	void Start () {
