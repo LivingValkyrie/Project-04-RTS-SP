@@ -33,12 +33,12 @@ public class TileArea : MonoBehaviour {
 	
 	}
     //check if the structure tied to the collider is active.
-    public bool isStructureActive()
+    public bool IsStructureActive()
     {
         return status.activeInHierarchy;
     }
     //check if the structure tied to the collider can be activated
-    public bool canStructureActivate()
+    public bool CanStructureActivate()
     {
         bool returnValue = false;
 
@@ -54,7 +54,7 @@ public class TileArea : MonoBehaviour {
     }
     //special for the road placement in the beginning, must be beside a settlement
     //not just looking for roads.
-    public bool canPlaceStartupRoad()
+    public bool CanPlaceStartupRoad()
     {
         bool returnValue = false;
 
@@ -71,4 +71,28 @@ public class TileArea : MonoBehaviour {
 
         return returnValue;
     }
+
+	//make structure visible.
+	void ActivateStructure()
+	{
+		status.SetActive = true;
+	}
+
+	//Try to activate the structure. Material amounts should
+	//already be approved.
+	public void TryToActivate()
+	{
+		bool active = IsStructureActive ();
+
+		if (!active) 
+		{
+			bool canMakeActive = CanStructureActivate();
+			if(canMakeActive)
+			{
+				ActivateStructure();
+			}
+		}
+
+	}
+
 }
