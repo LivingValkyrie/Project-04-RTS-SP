@@ -88,7 +88,7 @@ public class CatanPhases : MonoBehaviour {
 				break;
 			case (Phases.PROCESS):
 				turnNumber++;
-				SetPhase("PROCESS");
+				SetPhase("ENDGAME");
 				break;
 			case (Phases.ENDGAME):
 				//if(game is over)

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * @author Victor Haskins
+ * class ReadTiles basic Raycast Detection. Was going to add the Tile area issues to build phase here.
+ */
 public class ReadTiles : MonoBehaviour {
 
 	// Use this for initialization
@@ -31,6 +35,7 @@ public class ReadTiles : MonoBehaviour {
 
 					Debug.Log("Side. Clicked on " + areaScript.location
 					          + "\nClicked on Tile number " + tileScript.location);
+                    
 				}
 
 				if(tileHit.collider.tag == "Corner"){
@@ -43,4 +48,5 @@ public class ReadTiles : MonoBehaviour {
 			}
 		}
 	}
+
 }

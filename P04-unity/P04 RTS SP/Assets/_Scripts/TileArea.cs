@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * @author Victor Haskins
+ * class Tile Area Contains information on a collider instance for the tile instance
+ */
 public class TileArea : MonoBehaviour {
 
     public enum StructureType
@@ -28,12 +32,12 @@ public class TileArea : MonoBehaviour {
 	void Update () {
 	
 	}
-
+    //check if the structure tied to the collider is active.
     public bool isStructureActive()
     {
         return status.activeInHierarchy;
     }
-
+    //check if the structure tied to the collider can be activated
     public bool canStructureActivate()
     {
         bool returnValue = false;
@@ -48,7 +52,8 @@ public class TileArea : MonoBehaviour {
 
         return returnValue;
     }
-
+    //special for the road placement in the beginning, must be beside a settlement
+    //not just looking for roads.
     public bool canPlaceStartupRoad()
     {
         bool returnValue = false;
