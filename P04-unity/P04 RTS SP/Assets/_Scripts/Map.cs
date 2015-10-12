@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 
 /// <summary>
 /// Author: Matt Gipson
@@ -15,8 +16,30 @@ public class Map : MonoBehaviour {
 
     #endregion
 
-    void Start() { }
+    void Start() {}
 
-    void Update() { }
+    void Update() {}
 
+    public void LoadMap(string levelName = "default") {
+        if (levelName != "default") {
+            //load level at path from string name
+        } else {
+            //load default level
+        }
+    }
+
+    MapNode[] ParseNodes(string name) {
+        List<MapNode> nodes = new List<MapNode>();
+        string path;
+        if (name != "default") {
+            path = Application.dataPath + "/save_data/" + name + ".txt";
+        } else {
+            path = Application.dataPath + "/resources/default.txt";
+        }
+        using (StreamReader sr = new StreamReader(path)) {
+                //parsing code
+        }
+        
+        return nodes.ToArray();
+    }
 }
